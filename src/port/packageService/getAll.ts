@@ -8,6 +8,5 @@ export function GetAll(call:gprc.ServerUnaryCall<Empty, PackageList>, callback:g
             package: data
         }
         callback(null, response);
-    }
-    )
+    })
 }
