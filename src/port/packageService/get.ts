@@ -2,7 +2,7 @@ import * as gprc from '@grpc/grpc-js';
 import { PackageId } from '../../proto/package/PackageId';
 import { Package } from '../../proto/package/Package';
 import { PackageService } from '../../services/package.service';
-export function GetAll(call:gprc.ServerUnaryCall<PackageId, Package>, callback:gprc.sendUnaryData<Package>){
+export function Get(call:gprc.ServerUnaryCall<PackageId, Package>, callback:gprc.sendUnaryData<Package>){
     PackageService.findPackageById(call.request.id as string).then((data) => {
         // const packageData:Package = {
         //     id: data.id,
