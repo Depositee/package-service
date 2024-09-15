@@ -12,7 +12,7 @@ export class PackageService {
           }
     }
 
-    public async findPackageById(packageId: string): Promise<Package> {
+    public static async findPackageById(packageId: string): Promise<Package> {
         try {
             const findPackage: Package| null = await PackageModel.findOne({ _id: packageId });
             if (!findPackage) throw new HttpException(400, `Package with ID: ${packageId} doesn't exist`);
@@ -33,7 +33,7 @@ export class PackageService {
           }
     }
   
-    public async updatePackage(
+    public static async updatePackage(
       packageId: string,
       updatePackageData: Package,
     ): Promise<Package> {
@@ -59,7 +59,7 @@ export class PackageService {
           }
     }
   
-    public async deletePackage(
+    public static async deletePackage(
       packageId: string,
     ): Promise<Package> {
         try {
