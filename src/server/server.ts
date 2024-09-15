@@ -1,22 +1,19 @@
-import path from "path"
 import * as gprc from '@grpc/grpc-js';
-import * as protoLoader from '@grpc/proto-loader';
+import { listServices } from "../port/main";
 
 const port = 3000;
-const uri = `localhost:${port}`;
-const PROTO_FILE = "../../proto/package.proto";
-const packageDef = protoLoader.loadSync(path.resolve(__dirname, PROTO_FILE));
-const grpcObject = gprc.loadPackageDefinition(packageDef);
-const packageService = grpcObject.packageService;
+const url = `localhost:${port}`;
 const server = new gprc.Server();
+listServices.forEach(service => {
+    server.addService(service.service, service.implementation);
+});
 
-server.addService(packageService.PackageService.service, {
-    GetPackage: (call:any, callback:any) => {
-        const package = {
-        id: 1,
-        name: "Package 1",
-        description: "This is package 1"
-        };
-        callback(null, package);
+server.bindAsync(url, gprc.ServerCredentials.createInsecure(), (err, port) => {
+    if (err) {
+        console.error(err);
+        return;
     }
-    });
+    console.log(`Server running at http://${url}`);
+    server.start();
+}
+);
