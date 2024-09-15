@@ -20,7 +20,6 @@
   },
   "scripts": {
     "build": "yarn proto-loader-gen-types --grpcLib=@grpc/grpc-js --outDir=src/proto proto/package.proto",
-    "server": "ts-node server/index.ts",
-    "client": "ts-node client/index.ts"
+    "server": "npx ts-node src/server/server.ts"
   }
 }
