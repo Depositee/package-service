@@ -1,18 +1,10 @@
 import * as gprc from '@grpc/grpc-js';
-<<<<<<< HEAD
-import { listServices } from '../port/main';
-import { ConnectDB } from '../configs/database';
-=======
 import { listServices } from "../port/main";
->>>>>>> origin/main
-
+import { ConnectDB } from '../configs/database';
 const port = 3000;
 const url = `localhost:${port}`;
 const server = new gprc.Server();
-<<<<<<< HEAD
-ConnectDB();
-=======
->>>>>>> origin/main
+ConnectDB()
 listServices.forEach(service => {
     server.addService(service.service, service.implementation);
 });
@@ -23,6 +15,5 @@ server.bindAsync(url, gprc.ServerCredentials.createInsecure(), (err, port) => {
         return;
     }
     console.log(`Server running at http://${url}`);
-    server.start();
 }
 );
