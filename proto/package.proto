@@ -7,7 +7,7 @@ package package;
 service PackageService {
     rpc GetAll(google.protobuf.Empty) returns (PackageList) {}
     rpc Get (PackageId) returns (Package) {}
-    rpc create (Package) returns (Package) {}
+    rpc Create (Package) returns (Package) {}
     rpc Update (Package) returns (Package) {}
     rpc Delete (PackageId) returns (google.protobuf.Empty) {}
 
