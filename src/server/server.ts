@@ -5,7 +5,7 @@ import { ConnectDB } from '../configs/database';
 const port = 3000;
 const url = `localhost:${port}`;
 const server = new gprc.Server();
-ConnecedtDB();
+ConnectDB();
 listServices.forEach(service => {
     server.addService(service.service, service.implementation);
 });
