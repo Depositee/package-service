@@ -3,7 +3,7 @@ import { PackageModel } from "../models/package.model";
 import { Package } from "../proto/package/Package";
 
 export class PackageService {
-    public async findAllPackage(): Promise<Package[]> {
+    public static async findAllPackage(): Promise<Package[]> {
         try {
             const packages: Package[] = await PackageModel.find();
             return packages;
