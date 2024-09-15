@@ -1,11 +1,18 @@
 import * as gprc from '@grpc/grpc-js';
+<<<<<<< HEAD
 import { listServices } from '../port/main';
 import { ConnectDB } from '../configs/database';
+=======
+import { listServices } from "../port/main";
+>>>>>>> origin/main
 
 const port = 3000;
 const url = `localhost:${port}`;
 const server = new gprc.Server();
+<<<<<<< HEAD
 ConnectDB();
+=======
+>>>>>>> origin/main
 listServices.forEach(service => {
     server.addService(service.service, service.implementation);
 });
