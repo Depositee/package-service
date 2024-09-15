@@ -22,7 +22,7 @@ export class PackageService {
           }
     }
   
-    public async createPackage(
+    public static async createPackage(
       packageData: Package,
     ): Promise<Package> {
         try {
