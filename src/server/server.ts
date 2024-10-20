@@ -1,7 +1,7 @@
 import * as gprc from '@grpc/grpc-js';
 import { listServices } from "../port/main";
 import { ConnectDB } from '../configs/database';
-const port = 3000;
+const port = 3003;
 const url = `localhost:${port}`;
 const server = new gprc.Server();
 ConnectDB();0

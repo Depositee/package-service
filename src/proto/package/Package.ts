@@ -6,8 +6,8 @@ export interface Package {
   'name'?: (string);
   'description'?: (number);
   'weight'?: (number);
-  'depositorId'?: (number);
-  'depositeeId'?: (number);
+  'depositorId'?: (string);
+  'depositeeId'?: (string);
   'isAvailable'?: (boolean);
   'isReceived'?: (boolean);
 }
@@ -17,8 +17,8 @@ export interface Package__Output {
   'name'?: (string);
   'description'?: (number);
   'weight'?: (number);
-  'depositorId'?: (number);
-  'depositeeId'?: (number);
+  'depositorId'?: (string);
+  'depositeeId'?: (string);
   'isAvailable'?: (boolean);
   'isReceived'?: (boolean);
 }
