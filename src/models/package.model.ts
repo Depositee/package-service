@@ -8,12 +8,12 @@ const PackageSchema: Schema = new Schema(
     weight: { type: Number, required: true },
     isAvailable: { type: Boolean, required: true, default: true },
     isReceived: { type: Boolean, required: true, default: false },
-    depositor: {
+    depositorId: {
       type: Schema.Types.ObjectId,
       //ref: 'User',
       required: false, // change to true later after connect to User Manangement Service
     },
-    depositee: {
+    depositeeId: {
       type: Schema.Types.ObjectId,
       //ref: 'User',
       required: false,
