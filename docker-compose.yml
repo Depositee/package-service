@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  package-services:
+    container_name: package-services
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    networks:
+      - package-network
+    depends_on:
+      - package-db
+
+  package-db:
+    container_name: package-db
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - package-network
+    volumes:
+      - mongodb_data:/data/db
+
+networks:
+  package-network:
+    driver: bridge
+volumes:
+  mongodb_data:
