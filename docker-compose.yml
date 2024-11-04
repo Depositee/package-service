@@ -9,7 +9,7 @@ services:
     ports:
       - "3003:3003"
     networks:
-      - package-network
+      - backend
     depends_on:
       - package-db
 
@@ -19,12 +19,12 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - package-network
+      - backend
     volumes:
       - mongodb_data:/data/db
 
 networks:
-  package-network:
-    driver: bridge
+  backend:
+    external: true
 volumes:
   mongodb_data:

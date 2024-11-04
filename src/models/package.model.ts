@@ -1,5 +1,5 @@
-import { model, Schema, Document } from 'mongoose';
-import { Package } from '../proto/package/Package';
+import { model, Schema, Document } from "mongoose";
+import { Package } from "../proto/package/Package";
 
 const PackageSchema: Schema = new Schema(
   {
@@ -9,19 +9,19 @@ const PackageSchema: Schema = new Schema(
     isAvailable: { type: Boolean, required: true, default: true },
     isReceived: { type: Boolean, required: true, default: false },
     depositorId: {
-      type: Schema.Types.ObjectId,
+      type: String,
       //ref: 'User',
       required: false, // change to true later after connect to User Manangement Service
     },
     depositeeId: {
-      type: Schema.Types.ObjectId,
+      type: String,
       //ref: 'User',
       required: false,
     },
   },
   {
     timestamps: true,
-  },
+  }
 );
 
-export const PackageModel = model<Package & Document>('Package', PackageSchema);
+export const PackageModel = model<Package & Document>("Package", PackageSchema);
